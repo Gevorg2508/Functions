@@ -1,4 +1,4 @@
- let mainArr = ['licnep', 'circular', 'pupil', 'nilcpe', 'leppnec'];
+let mainArr = ['licnep', 'circular', 'pupil', 'nilcpe', 'leppnec'];
 let result = [] ; 
  function anagram(word,...arr){
     let word1 = word.split('').sort().join('');
