@@ -1,18 +1,24 @@
-let uniq = function(str){
-   let str1 = str.split("");
-let string = [];
-let result = [];
-for(let i = 0; i<str1.length; i++){
-    if(string.includes(str1[i]) === false){
-        string.push(str1[i]);
-    }else{
-        result.push(string);
-        string = [];
-        string.push(str[i]);
-    }
-}
-return result.sort((a,b)=>a.length - b.length)[result.length - 1].join('');
-}
+let longSub = function(str){
+    str = str.split("");
+    let akk = [];
+    let flag = true;
+    let result = [];
+    for(let i = 0; i<str.length; i++){
+        if(akk.includes(str[i]) === false){
+            akk.push(str[i]);
 
-let some = 'there are no two words in the english language more harmful than "goodjob".';
-console.log(uniq(some));
+        }else{
+            result.push(akk);
+            akk = [];
+            akk.push(str[i]); 
+            result.push(akk);
+            flag = false;
+        }
+    }
+    // console.log(akk);
+    //  result.push(akk);
+    result = result.sort((a,b)=>a.length - b.length)[result.length -1];
+    return flag === true ? akk :result;
+}
+let str = 'there are no two words in the english language more harmful than "good job".';
+console.log(longSub(str));
